@@ -1,0 +1,9 @@
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\bin\Debug\LookingGlass.exe
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\bin\Debug\LookingGlass.pdb
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\LookingGlass.Form1.resources
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\LookingGlass.Properties.Resources.resources
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\LookingGlass.exe
+C:\Users\amesias\Documents\Capstone\Code\LookingGlass\LookingGlass\obj\x86\Debug\LookingGlass.pdb
