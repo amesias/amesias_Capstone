@@ -19,7 +19,7 @@ namespace LookingGlass
         private void takePictureButton_Click(object sender, EventArgs e)
         {
             PictureCapturer capturer = new PictureCapturer();
-            capturer.capture(Int32.Parse(x0.Text), Int32.Parse(x1.Text), Int32.Parse(y0.Text), Int32.Parse(y1.Text));
+            capturer.capture(Int32.Parse(x0.Text), Int32.Parse(x1.Text), Int32.Parse(y0.Text), Int32.Parse(y1.Text), Int32.Parse(numPictures.Text));
         }
 
         private void fullScreenButton_Click(object sender, EventArgs e)

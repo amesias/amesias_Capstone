@@ -36,6 +36,8 @@
             this.y0 = new System.Windows.Forms.TextBox();
             this.y1 = new System.Windows.Forms.TextBox();
             this.takePictureButton = new System.Windows.Forms.Button();
+            this.numPictures = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +60,7 @@
             // 
             // fullScreenButton
             // 
-            this.fullScreenButton.Location = new System.Drawing.Point(91, 73);
+            this.fullScreenButton.Location = new System.Drawing.Point(91, 109);
             this.fullScreenButton.Name = "fullScreenButton";
             this.fullScreenButton.Size = new System.Drawing.Size(75, 23);
             this.fullScreenButton.TabIndex = 6;
@@ -96,7 +98,7 @@
             // 
             // takePictureButton
             // 
-            this.takePictureButton.Location = new System.Drawing.Point(91, 103);
+            this.takePictureButton.Location = new System.Drawing.Point(91, 138);
             this.takePictureButton.Name = "takePictureButton";
             this.takePictureButton.Size = new System.Drawing.Size(75, 23);
             this.takePictureButton.TabIndex = 11;
@@ -104,11 +106,30 @@
             this.takePictureButton.UseVisualStyleBackColor = true;
             this.takePictureButton.Click += new System.EventHandler(this.takePictureButton_Click);
             // 
+            // numPictures
+            // 
+            this.numPictures.Location = new System.Drawing.Point(140, 63);
+            this.numPictures.Name = "numPictures";
+            this.numPictures.Size = new System.Drawing.Size(100, 20);
+            this.numPictures.TabIndex = 12;
+            this.numPictures.Text = "1";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(64, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "NumPictures:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 138);
+            this.ClientSize = new System.Drawing.Size(259, 173);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numPictures);
             this.Controls.Add(this.takePictureButton);
             this.Controls.Add(this.y1);
             this.Controls.Add(this.y0);
@@ -134,6 +155,8 @@
         private System.Windows.Forms.TextBox y0;
         private System.Windows.Forms.TextBox y1;
         private System.Windows.Forms.Button takePictureButton;
+        private System.Windows.Forms.TextBox numPictures;
+        private System.Windows.Forms.Label label3;
 
     }
 }
