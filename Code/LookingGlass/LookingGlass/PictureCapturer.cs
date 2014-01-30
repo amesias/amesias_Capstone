@@ -10,6 +10,16 @@ public class PictureCapturer
 	{
 	}
 
+    public void drawSelectionBox(int x0, int x1, int y0, int y1)
+    {
+        Panel panel = new Panel();
+    }
+
+    public void hideSelectionBox()
+    {
+
+    }
+
     public void capture(int x0, int x1, int y0, int y1, int toCapture)
     {
         Bitmap screenCap = new Bitmap(x1-x0, y1-y0);
@@ -18,7 +28,8 @@ public class PictureCapturer
         while (numCaptures < toCapture)
         {
             graphics.CopyFromScreen(x0, y0, 0, 0, new Size(x1 - x0, y1 - y0));
-            screenCap.Save("C://" + DateTime.Now.Millisecond + ".bmp");
+            screenCap.Save("C://" + numCaptures + "_" + DateTime.Now.Millisecond + ".bmp");
+            System.Threading.Thread.Sleep(1000 / 25);
             numCaptures++;
         }
     }
