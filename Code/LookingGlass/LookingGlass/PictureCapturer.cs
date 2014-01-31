@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 public class PictureCapturer
 {
-    
+    Form selectionForm;
 
 	public PictureCapturer()
 	{
@@ -12,12 +12,24 @@ public class PictureCapturer
 
     public void drawSelectionBox(int x0, int x1, int y0, int y1)
     {
-        Panel panel = new Panel();
+        selectionForm = new Form();
+        selectionForm.FormBorderStyle = FormBorderStyle.None;
+        selectionForm.Opacity = .50;
+        selectionForm.Height = y1 - y0;
+        selectionForm.Width = x1 - x0;
+        selectionForm.WindowState = FormWindowState.Normal;
+        selectionForm.StartPosition = FormStartPosition.Manual;
+        selectionForm.Location = new Point(x0, y0);
+        selectionForm.Visible = true;
+
+        System.Threading.Thread.Sleep(1000);
+        hideSelectionBox();
     }
 
-    public void hideSelectionBox()
+    private void hideSelectionBox()
     {
-
+        selectionForm.Close();
+        selectionForm = null;
     }
 
     public void capture(int x0, int x1, int y0, int y1, int toCapture)

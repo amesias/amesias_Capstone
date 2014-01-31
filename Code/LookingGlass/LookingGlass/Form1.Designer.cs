@@ -38,6 +38,7 @@
             this.takePictureButton = new System.Windows.Forms.Button();
             this.numPictures = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.previewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -123,11 +124,22 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "NumPictures:";
             // 
+            // previewButton
+            // 
+            this.previewButton.Location = new System.Drawing.Point(173, 109);
+            this.previewButton.Name = "previewButton";
+            this.previewButton.Size = new System.Drawing.Size(75, 23);
+            this.previewButton.TabIndex = 14;
+            this.previewButton.Text = "Test View";
+            this.previewButton.UseVisualStyleBackColor = true;
+            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 173);
+            this.Controls.Add(this.previewButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numPictures);
             this.Controls.Add(this.takePictureButton);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.Button takePictureButton;
         private System.Windows.Forms.TextBox numPictures;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button previewButton;
 
     }
 }

@@ -29,5 +29,11 @@ namespace LookingGlass
             y0.Text = "0";
             y1.Text = Screen.PrimaryScreen.Bounds.Height + "";
         }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            PictureCapturer capturer = new PictureCapturer();
+            capturer.drawSelectionBox(Int32.Parse(x0.Text), Int32.Parse(x1.Text), Int32.Parse(y0.Text), Int32.Parse(y1.Text));
+        }
     }
 }
