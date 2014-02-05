@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 public class PictureCapturer
 {
@@ -9,6 +10,28 @@ public class PictureCapturer
 	public PictureCapturer()
 	{
 	}
+
+    struct PointApi
+    {
+        public int x;
+        public int y;
+    }
+
+    struct CursorInfo
+    {
+        public Int32 cbSize;
+        public Int32 flags;
+        public IntPtr hCursor;
+        public PointApi pointScreenPosition;
+    }
+
+    [DllImport("user32.dll")]
+    static extern bool GetCursorInfo(out CursorInfo pci);
+
+    [DllImport("user32.dll")]
+    static extern bool DrawIcon(IntPtr hDC, int X, int Y, IntPtr hIcon);
+
+    const Int32 CURSOR_VISIBLE = 0x00000001;
 
     public void drawSelectionBox(int x0, int x1, int y0, int y1)
     {
@@ -32,6 +55,8 @@ public class PictureCapturer
         selectionForm = null;
     }
 
+
+
     public void capture(int x0, int x1, int y0, int y1, int toCapture)
     {
         Bitmap screenCap = new Bitmap(x1-x0, y1-y0);
@@ -40,6 +65,14 @@ public class PictureCapturer
         while (numCaptures < toCapture)
         {
             graphics.CopyFromScreen(x0, y0, 0, 0, new Size(x1 - x0, y1 - y0));
+            CursorInfo pci;
+            pci.cbSize = System.Runtime.InteropServices.Marshal.SizeOf(typeof(CursorInfo));
+            GetCursorInfo(out pci);
+            if (pci.flags == CURSOR_VISIBLE)
+            {
+                DrawIcon(graphics.GetHdc(), pci.pointScreenPosition.x, pci.pointScreenPosition.y, pci.hCursor);
+                graphics.ReleaseHdc();
+            }
             screenCap.Save("C://" + numCaptures + "_" + DateTime.Now.Millisecond + ".bmp");
             System.Threading.Thread.Sleep(1000 / 25);
             numCaptures++;
