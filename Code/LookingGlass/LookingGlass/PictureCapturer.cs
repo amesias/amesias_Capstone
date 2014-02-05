@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 public class PictureCapturer
 {
@@ -55,7 +57,14 @@ public class PictureCapturer
         selectionForm = null;
     }
 
-
+    public List<String> getProcesses()
+    {
+        List<String> results = new List<String>();
+        Process[] processes = Process.GetProcesses();
+        for (int i = 0; i < processes.Length; i++)
+            results.Add(processes[i].ProcessName);
+        return results;
+    }
 
     public void capture(int x0, int x1, int y0, int y1, int toCapture)
     {
