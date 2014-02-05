@@ -39,6 +39,8 @@
             this.numPictures = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.previewButton = new System.Windows.Forms.Button();
+            this.runningApps = new System.Windows.Forms.ListBox();
+            this.getProcesses = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -134,11 +136,31 @@
             this.previewButton.UseVisualStyleBackColor = true;
             this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
             // 
+            // runningApps
+            // 
+            this.runningApps.FormattingEnabled = true;
+            this.runningApps.Location = new System.Drawing.Point(12, 168);
+            this.runningApps.Name = "runningApps";
+            this.runningApps.Size = new System.Drawing.Size(236, 95);
+            this.runningApps.TabIndex = 15;
+            // 
+            // getProcesses
+            // 
+            this.getProcesses.Location = new System.Drawing.Point(173, 139);
+            this.getProcesses.Name = "getProcesses";
+            this.getProcesses.Size = new System.Drawing.Size(75, 23);
+            this.getProcesses.TabIndex = 16;
+            this.getProcesses.Text = "Processes";
+            this.getProcesses.UseVisualStyleBackColor = true;
+            this.getProcesses.Click += new System.EventHandler(this.getProcesses_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 173);
+            this.ClientSize = new System.Drawing.Size(259, 275);
+            this.Controls.Add(this.getProcesses);
+            this.Controls.Add(this.runningApps);
             this.Controls.Add(this.previewButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numPictures);
@@ -170,6 +192,8 @@
         private System.Windows.Forms.TextBox numPictures;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button previewButton;
+        private System.Windows.Forms.ListBox runningApps;
+        private System.Windows.Forms.Button getProcesses;
 
     }
 }

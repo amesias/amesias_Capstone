@@ -35,5 +35,12 @@ namespace LookingGlass
             PictureCapturer capturer = new PictureCapturer();
             capturer.drawSelectionBox(Int32.Parse(x0.Text), Int32.Parse(x1.Text), Int32.Parse(y0.Text), Int32.Parse(y1.Text));
         }
+
+        private void getProcesses_Click(object sender, EventArgs e)
+        {
+            PictureCapturer capturer = new PictureCapturer();
+            foreach (String s in capturer.getProcesses())
+                runningApps.Items.Add(s);
+        }
     }
 }
