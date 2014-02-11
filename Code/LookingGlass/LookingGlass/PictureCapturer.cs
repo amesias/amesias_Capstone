@@ -63,14 +63,16 @@ public class PictureCapturer
         Process[] processes = Process.GetProcesses();
         for (int i = 0; i < processes.Length; i++)
             results.Add(processes[i].ProcessName);
+        Console.WriteLine(processes[0].MainWindowHandle);
         return results;
     }
 
     public void capture(int x0, int x1, int y0, int y1, int toCapture)
     {
-        Bitmap screenCap = new Bitmap(x1-x0, y1-y0);
+        Bitmap screenCap = new Bitmap(x1 - x0, y1 - y0);
         Graphics graphics = Graphics.FromImage(screenCap);
         int numCaptures = 0;
+        long started = DateTime.Now.ToBinary();
         while (numCaptures < toCapture)
         {
             graphics.CopyFromScreen(x0, y0, 0, 0, new Size(x1 - x0, y1 - y0));
@@ -82,7 +84,7 @@ public class PictureCapturer
                 DrawIcon(graphics.GetHdc(), pci.pointScreenPosition.x, pci.pointScreenPosition.y, pci.hCursor);
                 graphics.ReleaseHdc();
             }
-            screenCap.Save("C://" + numCaptures + "_" + DateTime.Now.Millisecond + ".bmp");
+            screenCap.Save("C://" + numCaptures + "_" + (DateTime.Now.ToBinary() - started) + ".bmp");
             System.Threading.Thread.Sleep(1000 / 25);
             numCaptures++;
         }
