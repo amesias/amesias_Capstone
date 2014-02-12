@@ -6,14 +6,32 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
+
+
 
 namespace LookingGlass
 {
     public partial class Form1 : Form
     {
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetWindowRect(HandleRef hwnd, out RECT lpRect);
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+
+
+        public struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
         }
 
         private void takePictureButton_Click(object sender, EventArgs e)
@@ -39,8 +57,19 @@ namespace LookingGlass
         private void getProcesses_Click(object sender, EventArgs e)
         {
             PictureCapturer capturer = new PictureCapturer();
-            foreach (String s in capturer.getProcesses())
+            foreach (ProcessPair s in capturer.getProcesses())
                 runningApps.Items.Add(s);
+        }
+
+        private void selectApplication_Click(object sender, EventArgs e)
+        {
+            ProcessPair selected = (ProcessPair)runningApps.Items[runningApps.SelectedIndex];
+            RECT rectangle;
+            GetWindowRect(new HandleRef(this, selected.handle), out rectangle);
+            x0.Text = rectangle.Left.ToString();
+            x1.Text = rectangle.Right.ToString();
+            y0.Text = rectangle.Top.ToString();
+            y1.Text = rectangle.Bottom.ToString();
         }
     }
 }

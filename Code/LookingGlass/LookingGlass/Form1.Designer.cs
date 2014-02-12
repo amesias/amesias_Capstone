@@ -41,6 +41,7 @@
             this.previewButton = new System.Windows.Forms.Button();
             this.runningApps = new System.Windows.Forms.ListBox();
             this.getProcesses = new System.Windows.Forms.Button();
+            this.selectApplication = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -154,11 +155,22 @@
             this.getProcesses.UseVisualStyleBackColor = true;
             this.getProcesses.Click += new System.EventHandler(this.getProcesses_Click);
             // 
+            // selectApplication
+            // 
+            this.selectApplication.Location = new System.Drawing.Point(12, 270);
+            this.selectApplication.Name = "selectApplication";
+            this.selectApplication.Size = new System.Drawing.Size(75, 23);
+            this.selectApplication.TabIndex = 17;
+            this.selectApplication.Text = "Select";
+            this.selectApplication.UseVisualStyleBackColor = true;
+            this.selectApplication.Click += new System.EventHandler(this.selectApplication_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 275);
+            this.ClientSize = new System.Drawing.Size(259, 320);
+            this.Controls.Add(this.selectApplication);
             this.Controls.Add(this.getProcesses);
             this.Controls.Add(this.runningApps);
             this.Controls.Add(this.previewButton);
@@ -194,6 +206,7 @@
         private System.Windows.Forms.Button previewButton;
         private System.Windows.Forms.ListBox runningApps;
         private System.Windows.Forms.Button getProcesses;
+        private System.Windows.Forms.Button selectApplication;
 
     }
 }

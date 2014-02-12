@@ -57,13 +57,17 @@ public class PictureCapturer
         selectionForm = null;
     }
 
-    public List<String> getProcesses()
+    public List<ProcessPair> getProcesses()
     {
-        List<String> results = new List<String>();
+        List<ProcessPair> results = new List<ProcessPair>();
         Process[] processes = Process.GetProcesses();
+        string windowTitle;
         for (int i = 0; i < processes.Length; i++)
-            results.Add(processes[i].ProcessName);
-        Console.WriteLine(processes[0].MainWindowHandle);
+        {
+            windowTitle = processes[i].MainWindowTitle;
+            if (!String.IsNullOrEmpty(windowTitle))
+                results.Add(new ProcessPair(processes[i].MainWindowHandle, processes[i].ProcessName));
+        }
         return results;
     }
 
